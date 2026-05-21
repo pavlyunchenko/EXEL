@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard - Car System</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #f4f6f9;
+    }
+
+    .navbar {
+      background: #1e3c72;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .cars {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .car {
+      background: linear-gradient(120deg, #2a5298, #1e3c72);
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <div>🚗 Car System Dashboard</div>
+  <button onclick="logout()">Logout</button>
+</div>
+
+<div class="container">
+  <div class="card">
+    <h3 id="welcome"></h3>
+    <p>Karibu kwenye mfumo wa magari</p>
+  </div>
+
+  <h3>Magari Yaliyopo</h3>
+
+  <div class="cars">
+    <div class="car">🚗 Toyota Corolla</div>
+    <div class="car">🚙 Nissan X-Trail</div>
+    <div class="car">🚘 BMW X5</div>
+    <div class="car">🚗 Mercedes Benz C-Class</div>
+  </div>
+</div>
+
+<script>
+let email = localStorage.getItem("loggedInUser");
+let user = JSON.parse(localStorage.getItem(email));
+
+if (!email) {
+  window.location.href = "login.html";
+}
+
+document.getElementById("welcome").innerText =
+  "Karibu, " + user.name;
+
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

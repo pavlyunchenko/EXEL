@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register - Car System</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(120deg, #1e3c72, #2a5298);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 300px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2a5298;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #2a5298;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1e3c72;
+    }
+
+    a {
+      text-decoration: none;
+      color: #2a5298;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Register</h2>
+
+  <input type="text" id="name" placeholder="Jina lako">
+  <input type="email" id="email" placeholder="Email">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="register()">Jisajili</button>
+
+  <p style="text-align:center;">Una account? <a href="login.html">Login</a></p>
+</div>
+
+<script>
+function register() {
+  let user = {
+    name: name.value,
+    email: email.value,
+    password: password.value
+  };
+
+  localStorage.setItem(user.email, JSON.stringify(user));
+  alert("Usajili umefanikiwa!");
+  window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>
